@@ -14,7 +14,7 @@ const thoughtsController = {
 
   // get one thought by id
   getThoughtById({ params }, res) {
-    Thought.findOne({ _id: params.id })
+    Thought.findOne({ _id: params.thoughtId })
       .select("-__v")
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
@@ -51,13 +51,13 @@ const thoughtsController = {
 
   // update thought by id
   updateThought({ params, body }, res) {
-    Thought.findOneAndUpdate({ _id: params.id }, body, {
+    Thought.findOneAndUpdate({ _id: params.thoughtId }, body, {
       new: true,
       runValidators: true,
     })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          res.status(404).json({ message: "No Thought found with this id!" });
+          res.status(404).json({ message: "No thought found with this id!" });
           return;
         }
         res.json(dbThoughtData);
@@ -72,18 +72,7 @@ const thoughtsController = {
         if (!deletedThought) {
           return res.status(404).json({ message: "No thought with this id!" });
         }
-        return User.findOneAndUpdate(
-          { _id: params.UserId },
-          { $pull: { Thoughts: params.thoughtId } },
-          { new: true }
-        );
-      })
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          res.status(404).json({ message: "No user found with this id!" });
-          return;
-        }
-        res.json(dbUserData);
+        res.json(dbThoughtData);
       })
       .catch((err) => res.json(err));
   },
