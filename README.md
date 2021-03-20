@@ -33,7 +33,7 @@ Before you can use this application you will need to have MongoDB installed on y
 To use this application go to the directory where you cloned the repository in the terminal. Once here you can run `npm i express mongoose` which will install the libraries needed for this app. Once you do that you can use Insomnia Core or any other application to test the API's on the backend.
 
 To watch a video of how to run this application follow this link:
-[Video of Social Media Back-End](https://drive.google.com/file/d/18y68Ee1L-CTjnVWoBK77Mshv3mS5uEmp/view)
+[Video of Social Media Back-End](https://drive.google.com/file/d/1NtuMeE3YRKYZQxTsLp5Cykl1SjSei1Gx/view)
 
 ## Questions
 
