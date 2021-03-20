@@ -106,8 +106,7 @@ const thoughtsController = {
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
           res.status(404).json({
-            message:
-              "No thought or reaction associated with one or more ID provided!",
+            message: "Thought or Reaction ID is incorrect!",
           });
           return;
         }
